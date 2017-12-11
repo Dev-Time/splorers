@@ -36,6 +36,7 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
+
 }
 
 project(":desktop") {
@@ -144,6 +145,21 @@ project(":core") {
         compile "com.github.czyzby:gdx-lml:1.9.1.9.6"
         compile "com.github.czyzby:gdx-lml-vis:1.9.1.9.6"
         compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+        compile "io.github.libktx:ktx-vis-style:1.9.7-b1"
+        compile "io.github.libktx:ktx-vis:1.9.7-b1"
+        compile "io.github.libktx:ktx-style:1.9.7-b1"
+        compile "io.github.libktx:ktx-math:1.9.7-b1"
+        compile "io.github.libktx:ktx-log:1.9.7-b1"
+        compile "io.github.libktx:ktx-inject:1.9.7-b1"
+        compile "io.github.libktx:ktx-i18n:1.9.7-b1"
+        compile "io.github.libktx:ktx-collections:1.9.7-b1"
+        compile "io.github.libktx:ktx-box2d:1.9.7-b1"
+        compile "io.github.libktx:ktx-async:1.9.7-b1"
+        compile "io.github.libktx:ktx-assets:1.9.7-b1"
+        compile "io.github.libktx:ktx-ashley:1.9.7-b1"
+        compile "io.github.libktx:ktx-app:1.9.7-b1"
+        compile "io.github.libktx:ktx-actors:1.9.7-b1"
     }
 }
 

@@ -1,8 +1,6 @@
 package space.pewpew.splorers
 
-import com.badlogic.ashley.core.Component
-
-data class RoadLocationComponent(val city1: CityLocationComponent, val city2: CityLocationComponent): Component {
+data class RoadGridLocation(val city1: CityGridLocation, val city2: CityGridLocation) {
     var x = 0f
     var y = 0f
     var rotation = 0f
@@ -14,7 +12,7 @@ data class RoadLocationComponent(val city1: CityLocationComponent, val city2: Ci
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as RoadLocationComponent
+        other as RoadGridLocation
 
         if (!(city1 == city1 || city1 == city2)) return false
         if (!(city2 == city1 || city2 == city2)) return false
