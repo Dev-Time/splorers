@@ -120,8 +120,8 @@ class Splorers : ApplicationAdapter() {
             }
         }
 
-        for (i in  -(gridWidth-1)..(gridWidth-1)) {
-            for (j in -(gridHeight-1)..(gridHeight-1)) {
+        for (i in  -(gridWidth)..(gridWidth)) {
+            for (j in -(gridHeight)..(gridHeight)) {
                 val location1 = HexGridLocation(i, j)
                 val location2 = HexGridLocation(i - 1, j)
                 val location3 = HexGridLocation(i, j + 1)
@@ -142,6 +142,90 @@ class Splorers : ApplicationAdapter() {
 
                 val cityLocation1 = CityGridLocation(location1, location2, location3)
                 val cityLocation2 = CityGridLocation(location1, location4, location3)
+
+                if (!cities.containsKey(cityLocation1)) {
+                    continue
+                }
+                if (!cities.containsKey(cityLocation2)) {
+                    continue
+                }
+
+                val city1 = cities[cityLocation1]!!
+                val city2 = cities[cityLocation2]!!
+
+                val road = RoadActor(city1, city2, 10f, shapeRenderer)
+                road.addListener(CityInputListener())
+                road.touchable = Touchable.enabled
+                stage.addActor(road)
+
+                roads[RoadGridLocation(cityLocation1, cityLocation2)] = road
+            }
+        }
+
+        for (i in  -(gridWidth)..(gridWidth)) {
+            for (j in -(gridHeight)..(gridHeight)) {
+                val location1 = HexGridLocation(i, j)
+                val location2 = HexGridLocation(i + 1, j + 1)
+                val location3 = HexGridLocation(i, j + 1)
+                val location4 = HexGridLocation(i + 1, j)
+
+                if (!tiles.containsKey(location1)) {
+                    continue
+                }
+                if (!tiles.containsKey(location2)) {
+                    continue
+                }
+                if (!tiles.containsKey(location3)) {
+                    continue
+                }
+                if (!tiles.containsKey(location4)) {
+                    continue
+                }
+
+                val cityLocation1 = CityGridLocation(location1, location2, location3)
+                val cityLocation2 = CityGridLocation(location1, location2, location4)
+
+                if (!cities.containsKey(cityLocation1)) {
+                    continue
+                }
+                if (!cities.containsKey(cityLocation2)) {
+                    continue
+                }
+
+                val city1 = cities[cityLocation1]!!
+                val city2 = cities[cityLocation2]!!
+
+                val road = RoadActor(city1, city2, 10f, shapeRenderer)
+                road.addListener(CityInputListener())
+                road.touchable = Touchable.enabled
+                stage.addActor(road)
+
+                roads[RoadGridLocation(cityLocation1, cityLocation2)] = road
+            }
+        }
+
+        for (i in  -(gridWidth)..(gridWidth)) {
+            for (j in -(gridHeight)..(gridHeight)) {
+                val location1 = HexGridLocation(i, j)
+                val location2 = HexGridLocation(i + 1, j)
+                val location3 = HexGridLocation(i + 1, j + 1)
+                val location4 = HexGridLocation(i, j - 1)
+
+                if (!tiles.containsKey(location1)) {
+                    continue
+                }
+                if (!tiles.containsKey(location2)) {
+                    continue
+                }
+                if (!tiles.containsKey(location3)) {
+                    continue
+                }
+                if (!tiles.containsKey(location4)) {
+                    continue
+                }
+
+                val cityLocation1 = CityGridLocation(location1, location2, location3)
+                val cityLocation2 = CityGridLocation(location1, location2, location4)
 
                 if (!cities.containsKey(cityLocation1)) {
                     continue
