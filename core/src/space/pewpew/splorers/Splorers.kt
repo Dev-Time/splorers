@@ -11,9 +11,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.kotcrab.vis.ui.VisUI
 
 class Splorers : ApplicationAdapter() {
-//    private lateinit var batch: SpriteBatch
-//    private lateinit var engine: Engine
-//    private lateinit var cam: OrthographicCamera
     private lateinit var shapeRenderer: ShapeRenderer
     private lateinit var hexTexture: Texture
     private lateinit var stage: Stage
@@ -42,7 +39,6 @@ class Splorers : ApplicationAdapter() {
 //        val table = Table()
 //        table.setFillParent(true)
 //        stage.addActor(table)
-
 
         for (i in  -gridWidth..gridWidth) {
             for (j in -gridHeight..gridHeight) {
@@ -157,7 +153,7 @@ class Splorers : ApplicationAdapter() {
                 val city1 = cities[cityLocation1]!!
                 val city2 = cities[cityLocation2]!!
 
-                val road = RoadActor(city1, city2, 5f, shapeRenderer)
+                val road = RoadActor(city1, city2, 10f, shapeRenderer)
                 road.addListener(CityInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
