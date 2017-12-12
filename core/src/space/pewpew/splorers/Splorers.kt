@@ -154,7 +154,7 @@ class Splorers : ApplicationAdapter() {
                 val city2 = cities[cityLocation2]!!
 
                 val road = RoadActor(city1, city2, 10f, 0.75f, shapeRenderer)
-                road.addListener(CityInputListener())
+                road.addListener(RoadInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
 
@@ -196,7 +196,7 @@ class Splorers : ApplicationAdapter() {
                 val city2 = cities[cityLocation2]!!
 
                 val road = RoadActor(city1, city2, 10f, 0.75f, shapeRenderer)
-                road.addListener(CityInputListener())
+                road.addListener(RoadInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
 
@@ -238,7 +238,7 @@ class Splorers : ApplicationAdapter() {
                 val city2 = cities[cityLocation2]!!
 
                 val road = RoadActor(city1, city2, 10f, 0.75f, shapeRenderer)
-                road.addListener(CityInputListener())
+                road.addListener(RoadInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
 
@@ -300,7 +300,7 @@ class Splorers : ApplicationAdapter() {
         Gdx.gl.glClearColor(0f, .5f, 0f, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line)
         stage.act(Gdx.graphics.deltaTime)
         stage.draw()
         shapeRenderer.end()

@@ -13,7 +13,8 @@ import kotlin.math.cos
 import kotlin.math.sqrt
 
 class RoadActor(val city1: CityActor, val city2: CityActor, val roadWidth: Float, val relativeRoadLength: Float, val shapeRenderer: ShapeRenderer) : Actor() {
-    var shape: Polygon
+    val shape: Polygon
+    val vertices: FloatArray
 
     init {
         val xDiff = (city2.getX() - city1.getX())
@@ -27,8 +28,8 @@ class RoadActor(val city1: CityActor, val city2: CityActor, val roadWidth: Float
         val xOffset = 0.5f * hypotenuse * cos(angle)
         val yOffset = 0.5f * hypotenuse * sin(angle)
 
-        x = city1.getX() + xOffset
-        y = city1.getY() + yOffset
+        x = city1.x + xOffset
+        y = city1.x + yOffset
 
         val longXOffset = 0.5f * absoluteRoadLength * cos(angle)
         val longYOffset = 0.5f * absoluteRoadLength * sin(angle)
@@ -41,7 +42,7 @@ class RoadActor(val city1: CityActor, val city2: CityActor, val roadWidth: Float
         val point3 = Coordinate(x + longXOffset + shortXOffset, y + longYOffset - shortYOffset)
         val point4 = Coordinate(x - longXOffset + shortXOffset, y - longYOffset - shortYOffset)
 
-        val vertices = FloatArray(4 * 2)
+        vertices = FloatArray(4 * 2)
 
         vertices[0] = point1.x
         vertices[1] = point1.y
@@ -61,6 +62,7 @@ class RoadActor(val city1: CityActor, val city2: CityActor, val roadWidth: Float
     override fun draw(batch: Batch?, parentAlpha: Float) {
         shapeRenderer.setColor(1f, 1f, 0f, 1f)
         shapeRenderer.rectLine(city1.center.x, city1.center.y, city2.center.x, city2.center.y, roadWidth)
+        shapeRenderer.polygon(vertices)
     }
 
     override fun hit(x: Float, y: Float, touchable: Boolean): Actor? {
