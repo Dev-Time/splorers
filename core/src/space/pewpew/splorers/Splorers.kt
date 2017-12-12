@@ -40,11 +40,11 @@ class Splorers : ApplicationAdapter() {
 //        table.setFillParent(true)
 //        stage.addActor(table)
 
-        for (i in  -gridWidth..gridWidth) {
+        for (i in -gridWidth..gridWidth) {
             for (j in -gridHeight..gridHeight) {
                 val coord = convertTileLocation(i.toFloat(), j.toFloat(), hexWidth, hexHeight)
                 val location = HexGridLocation(i, j)
-                val tile = (TileActor(hexTexture, hexHeight, hexWidth, coord.x+stage.width/2f, coord.y+stage.height/2f, location))
+                val tile = (TileActor(hexTexture, hexHeight, hexWidth, coord.x + stage.width / 2f, coord.y + stage.height / 2f, location))
                 tile.addListener(TileInputListener())
                 if (i == -gridWidth || i == gridWidth || j == -gridWidth || j == gridWidth) {
                     tile.isVisible = false
@@ -58,7 +58,7 @@ class Splorers : ApplicationAdapter() {
             }
         }
 
-        for (i in  -gridWidth..gridWidth) {
+        for (i in -gridWidth..gridWidth) {
             for (j in -gridHeight..gridHeight) {
                 val location1 = HexGridLocation(i, j)
                 val location2 = HexGridLocation(i + 1, j)
@@ -89,7 +89,7 @@ class Splorers : ApplicationAdapter() {
             }
         }
 
-        for (i in  -gridWidth..gridWidth) {
+        for (i in -gridWidth..gridWidth) {
             for (j in -gridHeight..gridHeight) {
                 val location1 = HexGridLocation(i, j)
                 val location2 = HexGridLocation(i + 1, j)
@@ -120,7 +120,7 @@ class Splorers : ApplicationAdapter() {
             }
         }
 
-        for (i in  -(gridWidth)..(gridWidth)) {
+        for (i in -(gridWidth)..(gridWidth)) {
             for (j in -(gridHeight)..(gridHeight)) {
                 val location1 = HexGridLocation(i, j)
                 val location2 = HexGridLocation(i - 1, j)
@@ -153,7 +153,7 @@ class Splorers : ApplicationAdapter() {
                 val city1 = cities[cityLocation1]!!
                 val city2 = cities[cityLocation2]!!
 
-                val road = RoadActor(city1, city2, 10f, shapeRenderer)
+                val road = RoadActor(city1, city2, 10f, 0.75f, shapeRenderer)
                 road.addListener(CityInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
@@ -162,7 +162,7 @@ class Splorers : ApplicationAdapter() {
             }
         }
 
-        for (i in  -(gridWidth)..(gridWidth)) {
+        for (i in -(gridWidth)..(gridWidth)) {
             for (j in -(gridHeight)..(gridHeight)) {
                 val location1 = HexGridLocation(i, j)
                 val location2 = HexGridLocation(i + 1, j + 1)
@@ -195,7 +195,7 @@ class Splorers : ApplicationAdapter() {
                 val city1 = cities[cityLocation1]!!
                 val city2 = cities[cityLocation2]!!
 
-                val road = RoadActor(city1, city2, 10f, shapeRenderer)
+                val road = RoadActor(city1, city2, 10f, 0.75f, shapeRenderer)
                 road.addListener(CityInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
@@ -204,7 +204,7 @@ class Splorers : ApplicationAdapter() {
             }
         }
 
-        for (i in  -(gridWidth)..(gridWidth)) {
+        for (i in -(gridWidth)..(gridWidth)) {
             for (j in -(gridHeight)..(gridHeight)) {
                 val location1 = HexGridLocation(i, j)
                 val location2 = HexGridLocation(i + 1, j)
@@ -237,7 +237,7 @@ class Splorers : ApplicationAdapter() {
                 val city1 = cities[cityLocation1]!!
                 val city2 = cities[cityLocation2]!!
 
-                val road = RoadActor(city1, city2, 10f, shapeRenderer)
+                val road = RoadActor(city1, city2, 10f, 0.75f, shapeRenderer)
                 road.addListener(CityInputListener())
                 road.touchable = Touchable.enabled
                 stage.addActor(road)
@@ -314,7 +314,7 @@ class Splorers : ApplicationAdapter() {
     }
 
     fun convertTileLocation(x: Float, y: Float, width: Float, height: Float): Coordinate {
-        val newX = (x * width) * (3f/4f)
+        val newX = (x * width) * (3f / 4f)
         val newY = (y * height) - (.5f * height * x)
 
         return Coordinate(newX, newY)
