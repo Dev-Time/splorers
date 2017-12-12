@@ -34,6 +34,9 @@ class CityActor(tile1: TileActor, tile2: TileActor, tile3: TileActor, val cityRa
         shape = Circle(cityRadius, cityRadius, cityRadius)
 
         setBounds(cityX - cityRadius, cityY - cityRadius, cityRadius * 2f, cityRadius*2f)
+
+        setX(cityX)
+        setY(cityY)
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
